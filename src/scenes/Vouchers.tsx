@@ -5,10 +5,10 @@ import { BrandBadge } from "../components/BrandBadge";
 
 export const Vouchers: React.FC = () => {
   return (
-    <div className="flex-1 w-full flex flex-col items-center justify-start p-12 pt-32 text-center text-white">
+    <div className="flex-1 w-full flex flex-col items-center justify-center p-12 text-center text-white space-y-12">
       <AnimatedText 
         text="But the quarterly vouchers alone are insane 👇" 
-        className="text-5xl text-orange-400 font-bold mb-16"
+        className="text-6xl leading-tight text-slate-100 font-bold"
         highlightWords={["insane"]}
       />
 
@@ -22,15 +22,17 @@ export const Vouchers: React.FC = () => {
       </div>
 
       <Sequence from={140}>
-        <div className="mt-16 mx-4 bg-orange-500/20 border border-orange-500/50 rounded-3xl p-8 backdrop-blur-md">
+        <div className="mx-4 bg-slate-900/60 border border-slate-700/50 rounded-3xl p-10 backdrop-blur-xl shadow-2xl relative overflow-hidden mt-8">
+           <div className="absolute inset-0 bg-gradient-to-br from-orange-500/10 to-transparent" />
            <AnimatedText 
              text="That’s ₹3,500 every quarter." 
-             className="text-4xl text-white font-medium mb-4"
+             className="text-5xl leading-tight text-slate-300 font-medium mb-6 relative z-10"
            />
            <AnimatedText 
              text="₹3,500 × 4 quarters = ₹14,000 per year 🎁" 
-             className="text-5xl text-orange-400 font-bold"
+             className="text-6xl leading-tight text-slate-100 font-bold relative z-10"
              delay={20}
+             highlightWords={["₹14,000"]}
            />
         </div>
       </Sequence>
