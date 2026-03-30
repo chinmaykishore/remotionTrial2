@@ -1,4 +1,4 @@
-import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig } from 'remotion';
+import { AbsoluteFill, interpolate, spring, useCurrentFrame, useVideoConfig, Img, Audio, staticFile } from 'remotion';
 
 export const Scene4: React.FC = () => {
 	const frame = useCurrentFrame();
@@ -15,43 +15,53 @@ export const Scene4: React.FC = () => {
 	});
 
 	return (
-		<AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center', padding: 80, backgroundColor: '#FF6B81', color: 'white', fontFamily: 'Outfit, sans-serif' }}>
+		<AbsoluteFill style={{ justifyContent: 'center', alignItems: 'center', padding: 80, color: 'white', fontFamily: 'Outfit, sans-serif' }}>
 			
+			<Audio src={staticFile('scene4.mp3')} />
+
+			{/* PM Modi Photo */}
 			<div style={{
-				fontSize: 90,
+				width: 400,
+				height: 400,
+				borderRadius: '50%',
+				overflow: 'hidden',
+				marginBottom: 60,
+				transform: `scale(${logoScale})`,
+				border: '10px solid rgba(255,255,255,0.2)',
+				boxShadow: '0 20px 50px rgba(0,0,0,0.5)'
+			}}>
+				<Img 
+					src={staticFile('modi.png')}
+					style={{ width: '100%', height: '100%', objectFit: 'cover' }}
+				/>
+			</div>
+
+			<div style={{
+				fontSize: 80,
 				fontWeight: 800,
 				textAlign: 'center',
-				transform: `scale(${logoScale})`,
-				marginBottom: 60,
+				opacity: textOpacity,
+				marginBottom: 40,
+				color: '#FFB347'
 			}}>
-				YOU CAN START<br />
-				<span style={{ color: '#FFE66D', fontSize: 130 }}>₹250</span> / YR
+				A Step Towards Empowerment 🇮🇳
 			</div>
 
 			<div style={{
 				fontSize: 60,
 				fontWeight: 600,
 				textAlign: 'center',
-				backgroundColor: 'white',
-				color: '#FF6B81',
+				backgroundColor: 'rgba(255, 255, 255, 0.1)',
+				backdropFilter: 'blur(20px)',
+				border: '1px solid rgba(255,255,255,0.2)',
+				color: 'white',
 				padding: '40px 80px',
 				borderRadius: 50,
 				opacity: textOpacity,
-				boxShadow: '0 20px 40px rgba(0,0,0,0.2)'
+				boxShadow: '0 20px 40px rgba(0,0,0,0.4)'
 			}}>
-				Open an account<br />
-				at any post office or bank!
-			</div>
-
-			<div style={{
-				position: 'absolute',
-				bottom: 150,
-				fontSize: 45,
-				fontWeight: 400,
-				opacity: textOpacity,
-				textAlign: 'center'
-			}}>
-				Secure her future today.
+				Start with just <b style={{ color: '#FFB347' }}>₹250</b> / YR<br />
+				Open an account today! 🏦
 			</div>
 			
 		</AbsoluteFill>

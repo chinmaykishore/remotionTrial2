@@ -4,27 +4,39 @@ import { Scene2 } from './scenes/Scene2';
 import { Scene3 } from './scenes/Scene3';
 import { Scene4 } from './scenes/Scene4';
 
-export const SSYReel: React.FC = () => {
-	// Total duration is 720 frames (24 seconds)
+export const SSYReel: React.FC<{
+	sceneLengths: number[];
+}> = ({ sceneLengths }) => {
+	
+	// Default lengths if not provided by calculateMetadata
+	const lengths = sceneLengths || [180, 180, 180, 180];
+
+	// Accumulate starts
+	let t = 0;
+	const s1Start = t; t += lengths[0];
+	const s2Start = t; t += lengths[1];
+	const s3Start = t; t += lengths[2];
+	const s4Start = t; t += lengths[3];
+
 	return (
-		<AbsoluteFill style={{ backgroundColor: '#fff8f9' }}>
-			{/* Hook: "Start investing 5000 today..." 0 - 6s */}
-			<Sequence from={0} durationInFrames={180}>
+		<AbsoluteFill style={{ backgroundColor: '#0B132B' }}>
+			{/* Hook */}
+			<Sequence from={s1Start} durationInFrames={lengths[0]}>
 				<Scene1 />
 			</Sequence>
 
-			{/* Scheme Introduce: "Sukanya Samriddhi Yojana" 6s - 10s */}
-			<Sequence from={180} durationInFrames={120}>
+			{/* Scheme Introduce */}
+			<Sequence from={s2Start} durationInFrames={lengths[1]}>
 				<Scene2 />
 			</Sequence>
 
-			{/* Chart Growth: 10s - 18s */}
-			<Sequence from={300} durationInFrames={240}>
+			{/* Chart Growth */}
+			<Sequence from={s3Start} durationInFrames={lengths[2]}>
 				<Scene3 />
 			</Sequence>
 
-			{/* CTA: 18s - 24s */}
-			<Sequence from={540} durationInFrames={180}>
+			{/* CTA */}
+			<Sequence from={s4Start} durationInFrames={lengths[3]}>
 				<Scene4 />
 			</Sequence>
 		</AbsoluteFill>
