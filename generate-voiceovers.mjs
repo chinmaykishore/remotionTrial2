@@ -22,7 +22,7 @@ const scenes = [
 ];
 
 async function generateVoiceovers() {
-  const publicDir = path.join(process.cwd(), 'public');
+  const publicDir = path.join(process.cwd(), 'public', 'ssy');
   if (!fs.existsSync(publicDir)) {
     fs.mkdirSync(publicDir, { recursive: true });
   }
