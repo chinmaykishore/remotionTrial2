@@ -37,11 +37,15 @@ export const RemotionRoot: React.FC = () => {
             <Composition
                 id="RBIRulesReel"
                 component={RBIRulesReel}
-                durationInFrames={300}
+                durationInFrames={2550}
                 fps={FPS}
                 width={1080}
                 height={1920}
             />
+
+
+
+
         </>
     );
 };
